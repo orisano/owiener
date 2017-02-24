@@ -8,7 +8,7 @@ setup(
     description="A Python3 implementation of the Wiener attack on RSA",
     license="MIT",
     url="https://github.com/orisano/wiener",
-    packages=["wiener"],
+    py_modules=["wiener"],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: MIT License",
