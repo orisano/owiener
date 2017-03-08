@@ -25,6 +25,8 @@ from typing import List, Tuple, Iterator, Iterable, Optional
 
 def isqrt(n: int) -> int:
     """
+    ref: https://en.wikipedia.org/wiki/Integer_square_root
+    
     >>> isqrt(289)
     17
     >>> isqrt(2)
@@ -35,6 +37,7 @@ def isqrt(n: int) -> int:
     if n == 0:
         return 0
 
+    # ref: https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Rough_estimation
     x = 2 ** ((n.bit_length() + 1) // 2)
     while True:
         y = (x + n // x) // 2
@@ -44,6 +47,10 @@ def isqrt(n: int) -> int:
 
 
 def is_perfect_square(n: int) -> bool:
+    """
+    ref: http://d.hatena.ne.jp/hnw/20140503
+    ref: https://github.com/AlexeiSheplyakov/gmp.pkg/blob/master/mpn/generic/perfsqr.c
+    """
     sq_mod256 = (1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0)
     if sq_mod256[n & 0xff] == 0:
         return False
@@ -64,6 +71,8 @@ def is_perfect_square(n: int) -> bool:
 
 def rational_to_contfrac(x: int, y: int) -> Iterator[int]:
     """
+    ref: https://en.wikipedia.org/wiki/Euclidean_algorithm#Continued_fractions
+    
     >>> list(rational_to_contfrac(4, 11))
     [0, 2, 1, 3]
     """
@@ -74,6 +83,9 @@ def rational_to_contfrac(x: int, y: int) -> Iterator[int]:
 
 
 def contfrac_to_rational_iter(contfrac: Iterable[int]) -> Iterator[Tuple[int, int]]:
+    """
+    ref: https://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/krypto2ss08/shortsecretexponents.pdf (6)
+    """
     n0, d0 = 0, 1
     n1, d1 = 1, 0
     for q in contfrac:
@@ -85,6 +97,9 @@ def contfrac_to_rational_iter(contfrac: Iterable[int]) -> Iterator[Tuple[int, in
 
 
 def convergents_from_contfrac(contfrac: Iterable[int]) -> Iterator[Tuple[int, int]]:
+    """
+    ref: https://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/krypto2ss08/shortsecretexponents.pdf Section.3
+    """
     n_, d_ = 1, 0
     for i, (n, d) in enumerate(contfrac_to_rational_iter(contfrac)):
         if i % 2 == 0:
@@ -96,6 +111,8 @@ def convergents_from_contfrac(contfrac: Iterable[int]) -> Iterator[Tuple[int, in
 
 def attack(e: int, n: int) -> Optional[int]:
     """
+    ref: https://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/krypto2ss08/shortsecretexponents.pdf Section.4
+    
     >>> attack(2621, 8927)
     5
     >>> attack(6792605526025, 9449868410449)
