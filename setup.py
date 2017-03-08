@@ -1,14 +1,14 @@
 from setuptools import setup
 
 setup(
-    name="wiener",
+    name="owiener",
     version="0.0.1",
     author="orisano",
     author_email="owan.orisano@gmail.com",
     description="A Python3 implementation of the Wiener attack on RSA",
     license="MIT",
     url="https://github.com/orisano/wiener",
-    py_modules=["wiener"],
+    py_modules=["owiener"],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: MIT License",
