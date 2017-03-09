@@ -7,7 +7,7 @@ python3 -m pip install owiener
 ```
 or
 ```bash
-curl -O https://raw.githubusercontent.com/orisano/wiener/master/owiener.py
+curl -O https://raw.githubusercontent.com/orisano/owiener/master/owiener.py
 ```
 
 ## Example
