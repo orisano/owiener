@@ -3,7 +3,7 @@ A Python3 Implementation of the Wiener attack on RSA.
 
 ## Installation
 ```bash
-python3 -m pip install git+https://github.com/orisano/owiener
+python3 -m pip install owiener
 ```
 or
 ```bash
