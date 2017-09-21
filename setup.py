@@ -12,7 +12,7 @@ except ImportError:
 
 setup(
     name="owiener",
-    version="1.0.1",
+    version="1.0.2",
     author="orisano",
     author_email="owan.orisano@gmail.com",
     description="A Python3 implementation of the Wiener attack on RSA",
