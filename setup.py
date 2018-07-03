@@ -11,7 +11,7 @@ URL = "https://github.com:/orisano/owiener"
 EMAIL = "owan.orisano@gmail.com"
 AUTHOR = "orisano"
 REQUIRES_PYTHON = ">=3.5.0"
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 
 here = os.path.abspath(os.path.dirname(__file__))
 with io.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
