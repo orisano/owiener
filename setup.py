@@ -1,25 +1,73 @@
-import os.path
+import io
+import os
+import sys
+from shutil import rmtree
 
-from setuptools import setup
+from setuptools import setup, Command
 
-readme_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
-try:
-    from m2r import parse_from_file
-    readme = parse_from_file(readme_file)
-except ImportError:
-    with open(readme_file) as f:
-        readme = f.read()
+NAME = "owiener"
+DESCRIPTION = "A Python3 implementation of the Wiener attack on RSA"
+URL = "https://github.com:/orisano/owiener"
+EMAIL = "owan.orisano@gmail.com"
+AUTHOR = "orisano"
+REQUIRES_PYTHON = ">=3.5.0"
+VERSION = "1.0.3"
+
+here = os.path.abspath(os.path.dirname(__file__))
+with io.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
+    long_description = "\n" + f.read()
+
+
+class UploadCommand(Command):
+    """Support setup.py upload."""
+
+    description = "Build and publish the package"
+    user_options = []
+
+    @staticmethod
+    def status(s):
+        """Prints things in bold."""
+        print("\033[1m{0}\033[0m".format(s))
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        try:
+            self.status("Removing previous builds...")
+            rmtree(os.path.join(here, "dist"))
+        except OSError:
+            pass
+
+        self.status("Building Source and Wheel (universal) distribution...")
+        os.system("{0} setup.py sdist bdist_wheel --universal".format(sys.executable))
+
+        self.status("Uploading the package to PyPI via Twine...")
+        os.system("twine upload dist/*")
+
+        self.status("Pushing git tags...")
+        os.system("git tag v{0}".format(VERSION))
+        os.system("git push --tags")
+
+        sys.exit()
+
 
 setup(
-    name="owiener",
-    version="1.0.2",
-    author="orisano",
-    author_email="owan.orisano@gmail.com",
-    description="A Python3 implementation of the Wiener attack on RSA",
-    long_description=readme,
-    license="MIT",
-    url="https://github.com/orisano/owiener",
+    name=NAME,
+    version=VERSION,
+    description=DESCRIPTION,
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    author=AUTHOR,
+    author_email=EMAIL,
+    python_requires=REQUIRES_PYTHON,
+    url=URL,
     py_modules=["owiener"],
+    include_package_data=True,
+    license="MIT",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: MIT License",
@@ -29,4 +77,7 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
         "Topic :: Security :: Cryptography",
     ],
+    cmdclass={
+        "upload": UploadCommand,
+    },
 )
