@@ -36,5 +36,8 @@ https://github.com/pablocelayes/rsa-wiener-attack
 wihoho/Wiener-s-Attack:  
 https://github.com/wihoho/Wiener-s-Attack
 
+## Author
+Nao YONASHIRO (@orisano)
+
 ## License
 MIT
