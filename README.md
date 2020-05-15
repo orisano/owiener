@@ -39,7 +39,7 @@ wihoho/Wiener-s-Attack:
 https://github.com/wihoho/Wiener-s-Attack
 
 ## Author
-Nao YONASHIRO (@orisano)
+Nao Yonashiro (@orisano)
 
 ## License
 MIT
