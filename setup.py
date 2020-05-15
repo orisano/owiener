@@ -9,7 +9,7 @@ NAME = "owiener"
 DESCRIPTION = "A Python3 implementation of the Wiener attack on RSA"
 URL = "https://github.com:/orisano/owiener"
 EMAIL = "owan.orisano@gmail.com"
-AUTHOR = "orisano"
+AUTHOR = "Nao Yonashiro"
 REQUIRES_PYTHON = ">=3.5.0"
 VERSION = "1.0.5"
 
