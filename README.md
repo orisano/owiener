@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/owiener.svg)](https://badge.fury.io/py/owiener)
 [![Python Versions](https://img.shields.io/pypi/pyversions/owiener.svg)](https://pypi.org/project/owiener/)
 
-A Python3 Implementation of the Wiener attack on RSA.
+A Python3 implementation of the Wiener attack on RSA.
 
 ## Installation
 ```bash
@@ -30,7 +30,7 @@ else:
 # Hacked d=4221909016509078129201801236879446760697885220928506696150646938237440992746683409881141451831939190609743447676525325543963362353923989076199470515758399
 ```
 
-## Reference
+## References
 Cryptanalysis of Short RSA Secret Exponents:  
 https://www.cits.ruhr-uni-bochum.de/imperia/md/content/may/krypto2ss08/shortsecretexponents.pdf  
 pablocelayes/rsa-wiener-attack:  
