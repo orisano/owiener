@@ -48,8 +48,8 @@ def isqrt(n: int) -> int:
 
 def is_perfect_square(n: int) -> bool:
     """
-    ref: http://d.hatena.ne.jp/hnw/20140503
-    ref: https://github.com/AlexeiSheplyakov/gmp.pkg/blob/master/mpn/generic/perfsqr.c
+    ref: https://hnw.hatenablog.com/entry/20140503
+    ref: https://gmplib.org/repo/gmp/file/default/mpn/generic/perfsqr.c
 
     >>> is_perfect_square(100)
     True
