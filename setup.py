@@ -7,7 +7,7 @@ from setuptools import setup, Command
 
 NAME = "owiener"
 DESCRIPTION = "A Python3 implementation of the Wiener attack on RSA"
-URL = "https://github.com:/orisano/owiener"
+URL = "https://github.com/orisano/owiener"
 EMAIL = "owan.orisano@gmail.com"
 AUTHOR = "Nao Yonashiro"
 REQUIRES_PYTHON = ">=3.5.0"
