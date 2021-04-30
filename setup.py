@@ -1,21 +1,8 @@
-import io
 import os
 import sys
 from shutil import rmtree
 
 from setuptools import setup, Command
-
-NAME = "owiener"
-DESCRIPTION = "A Python3 implementation of the Wiener attack on RSA"
-URL = "https://github.com/orisano/owiener"
-EMAIL = "owan.orisano@gmail.com"
-AUTHOR = "Nao Yonashiro"
-REQUIRES_PYTHON = ">=3.5.0"
-VERSION = "1.0.6"
-
-here = os.path.abspath(os.path.dirname(__file__))
-with io.open(os.path.join(here, "README.md"), encoding="utf-8") as f:
-    long_description = "\n" + f.read()
 
 
 class UploadCommand(Command):
@@ -47,38 +34,10 @@ class UploadCommand(Command):
 
         self.status("Uploading the package to PyPI via Twine...")
         os.system("twine upload dist/*")
-
-        self.status("Pushing git tags...")
-        os.system("git tag v{0}".format(VERSION))
-        os.system("git push --tags")
-
         sys.exit()
 
 
 setup(
-    name=NAME,
-    version=VERSION,
-    description=DESCRIPTION,
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    author=AUTHOR,
-    author_email=EMAIL,
-    python_requires=REQUIRES_PYTHON,
-    url=URL,
-    py_modules=["owiener"],
-    include_package_data=True,
-    license="MIT",
-    classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3 :: Only",
-        "Topic :: Security :: Cryptography",
-    ],
     cmdclass={
         "upload": UploadCommand,
     },
