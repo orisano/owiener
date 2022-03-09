@@ -23,12 +23,6 @@ class UploadCommand(Command):
         pass
 
     def run(self):
-        try:
-            self.status("Removing previous builds...")
-            rmtree(os.path.join(here, "dist"))
-        except OSError:
-            pass
-
         self.status("Building Source and Wheel (universal) distribution...")
         os.system("{0} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
