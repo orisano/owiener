@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "owiener"
+version = "0.19.0"
+authors = [
+  {name = "Nao Yonashiro", email = "owan.orisano@gmail.com"}
+]
+description = "A Python3 implementation of the Wiener attack on RSA"
+readme = "README.md"
+requires-python = ">=3.5"
+license = {file = "LICENSE"}
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Topic :: Security :: Cryptography",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.5",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+[project.urls]
+Repository = "https://github.com/orisano/owiener"
+
+[tool.setuptools]
+py-modules = ["owiener"]
+include-package-data = true
