@@ -1,5 +1,5 @@
 # oWiener
-[![Build Status](https://app.travis-ci.com/orisano/owiener.svg?branch=master)](https://app.travis-ci.com/orisano/owiener)
+[![Test](https://github.com/orisano/owiener/actions/workflows/test.yml/badge.svg)](https://github.com/orisano/owiener/actions/workflows/test.yml)
 [![PyPI version](https://badge.fury.io/py/owiener.svg)](https://badge.fury.io/py/owiener)
 [![Python Versions](https://img.shields.io/pypi/pyversions/owiener.svg)](https://pypi.org/project/owiener/)
 
